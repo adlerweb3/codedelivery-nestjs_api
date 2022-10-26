@@ -58,6 +58,56 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Docker initial configs
+
+```bash
+# exec permitions file
+$ chmod +x .docker/entrypoint.sh
+
+# Run
+$ docker compose up
+```
+
+Unce container started and tested at localhost:3000, access bash container:
+
+```bash
+$ docker compose exec app bash
+```
+
+Inside the container, for automatic generate all nestjs project include methods (routes, imports, modules, controllers), type cli bellow:
+
+```bash
+bash-5.0$ nest g resource routes
+```
+
+```bash
+❯ REST API
+  ? What transport layer do you use? REST API
+  ? Would you like to generate CRUD entry points? (Y)
+```
+
+Sample:
+
+```bash
+CREATE src/routes/routes.controller.spec.ts (576 bytes)
+CREATE src/routes/routes.controller.ts (915 bytes)
+CREATE src/routes/routes.module.ts (254 bytes)
+CREATE src/routes/routes.service.spec.ts (460 bytes)
+CREATE src/routes/routes.service.ts (623 bytes)
+CREATE src/routes/dto/create-route.dto.ts (31 bytes)
+CREATE src/routes/dto/update-route.dto.ts (173 bytes)
+CREATE src/routes/entities/route.entity.ts (22 bytes)
+UPDATE package.json (2026 bytes)
+UPDATE src/app.module.ts (316 bytes)
+✔ Packages installed successfully.
+```
+
+Installing Mongo dependencies inside container:
+```bash
+bash-5.0$ npm install mongoose @nestjs/mongoose --save
+```
+
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
