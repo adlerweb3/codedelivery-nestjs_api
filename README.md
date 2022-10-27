@@ -102,11 +102,20 @@ UPDATE src/app.module.ts (316 bytes)
 ✔ Packages installed successfully.
 ```
 
-Installing Mongo dependencies inside container:
+Installing dependencies inside container:
+
 ```bash
 bash-5.0$ npm install mongoose @nestjs/mongoose --save
+bash-5.0$ npm install @nestjs/config --save
+bash-5.0$ npm install kafkajs @nestjs/microservices --save
 ```
 
+## Recomended VS Code Extensions
+
+<p>
+  <span>REST Client for Visual Studio Code [Huachao Mao]</span><br>
+  <img src=".github/screenshot-rest_ext.png" width="300">
+</p>
 
 ## Support
 
